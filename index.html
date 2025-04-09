@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Космічні дослідження</title>
+    <style>
+        body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0b0c2a;
+    color: #fff;
+  }
+  header {
+    background: url('https://img.freepik.com/free-photo/one-person-hiking-mountain-peak-admiring-milky-way-galaxy-generated-by-ai_24640-93611.jpg?ga=GA1.1.1006385511.1732368125&semt=ais_country_boost&w=740') center/cover no-repeat;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  header h1 {
+    background-color: rgba(16, 32, 47, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .tabs {
+    display: flex;
+    justify-content: center;
+    background-color: #1c1e45;
+    flex-wrap: wrap;
+  }
+  .tab-button {
+    padding: 15px 25px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    font-size: 16px;
+    transition: background 0.3s;
+  }
+  .tab-button:hover, .tab-button.active {
+    background-color: #FFD700;
+    color: #000;
+    border-radius: 10px 10px 0 0;
+  }
+  .tab-content {
+    display: none;
+    animation: fade 0.5s ease-in-out;
+    padding: 30px;
+  }
+  .tab-content.active {
+    display: block;
+  }
+  @keyframes fade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  h2 {
+    color: #FFD700;
+  }
+  .gallery img {
+    width: 100%;
+    max-width: 300px;
+    margin: 50px;
+    border-radius: 10px;
+  }
+  form, .comments {
+    margin-top: 20px;
+  }
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: none;
+  }
+  button {
+    padding: 10px 20px;
+    background-color: #FFD700;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .comment-box {
+    background-color: #1c1e45;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+    </style>
+ 
+</head>
+<body>
+  <header>
+    <h1>Космічні дослідження – шлях до зірок</h1>
+  </header>
+
+  <div class="tabs">
+    <button class="tab-button active" data-tab="history">Історія</button>
+    <button class="tab-button" data-tab="modern">Сучасні місії</button>
+    <button class="tab-button" data-tab="future">Майбутнє</button>
+    <button class="tab-button" data-tab="gallery">Галерея</button>
+    <button class="tab-button" data-tab="video">Відео</button>
+    <button class="tab-button" data-tab="form">Зворотній зв'язок</button>
+    <button class="tab-button" data-tab="comments">Коментарі</button>
+  </div>
+
+  <div class="tab-content active" id="history">
+    <h2>Історія космічних досліджень</h2>
+    <p>Космічні дослідження розпочалися у ХХ столітті з запуску першого супутника. Події, як політ Гагаріна та висадка на Місяць, стали епохальними віхами.</p>
+  </div>
+
+  <div class="tab-content" id="modern">
+    <h2>Сучасні місії та технології</h2>
+    <p>Сьогодні космос досліджують як державні агенції, так і приватні компанії. Телескопи, марсоходи та супутники щодня надсилають дані з різних куточків Всесвіту.</p>
+  </div>
+
+  <div class="tab-content" id="future">
+    <h2>Майбутнє освоєння космосу</h2>
+    <p>Колонізація Марса, нові космічні станції та туризм — лише частина майбутнього. Людство готується до нової космічної ери.</p>
+  </div>
+
+  <div class="tab-content" id="gallery">
+    <h2>Галерея</h2>
+    <div class="gallery">
+      <img src="https://img.freepik.com/free-photo/earth-seen-from-space_23-2150528643.jpg?ga=GA1.1.1006385511.1732368125&semt=ais_country_boost&w=740" alt="Земля з космосу">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/James_Webb_Space_Telescope_Mirrors_Will_Piece_Together_Cosmic_Puzzles_%2830108124923%29.jpg/500px-James_Webb_Space_Telescope_Mirrors_Will_Piece_Together_Cosmic_Puzzles_%2830108124923%29.jpg" alt="Телескоп James Webb">
+      <img src="https://cdn.pixabay.com/photo/2012/11/28/10/37/rocket-launch-67649_1280.jpg" alt="Запуск ракети">
+    </div>
+  </div>
+
+  <div class="tab-content" id="video">
+    <h2>Відео</h2>
+    <iframe width="100%" height="326" src="https://www.youtube.com/embed/AfUTnud2Ojs" title="15 ФАКТІВ ПРО КОСМОС" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
+  <div class="tab-content" id="form">
+    <h2>Форма зворотного зв'язку</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Ваше ім’я" required>
+      <input type="email" placeholder="Ваш email" required>
+      <textarea rows="4" placeholder="Ваше повідомлення" required></textarea>
+      <button type="submit">Надіслати</button>
+    </form>
+  </div>
+
+  <div class="tab-content" id="comments">
+    <h2>Коментарі</h2>
+    <form id="commentForm">
+      <input type="text" id="userName" placeholder="Ваше ім’я" required>
+      <textarea id="userComment" rows="3" placeholder="Ваш коментар" required></textarea>
+      <button type="submit">Додати коментар</button>
+    </form>
+    <div class="comments" id="commentsList"></div>
+  </div>
+<script>
+    // Перемикання вкладок
+const buttons = document.querySelectorAll('.tab-button');
+const contents = document.querySelectorAll('.tab-content');
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    buttons.forEach(btn => btn.classList.remove('active'));
+    contents.forEach(content => content.classList.remove('active'));
+
+    button.classList.add('active');
+    document.getElementById(button.dataset.tab).classList.add('active');
+  });
+});
+
+// Обробка форми коментарів
+const commentForm = document.getElementById('commentForm');
+const commentsList = document.getElementById('commentsList');
+
+commentForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = document.getElementById('userName').value;
+  const comment = document.getElementById('userComment').value;
+
+  const commentBox = document.createElement('div');
+  commentBox.className = 'comment-box';
+  commentBox.innerHTML = `<strong>${name}</strong><p>${comment}</p>`;
+
+  commentsList.prepend(commentBox);
+  commentForm.reset();
+});
+</script>
+</body>
+</html>
