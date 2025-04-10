@@ -12,12 +12,13 @@
       color: #fff;
     }
     header {
-      background: url('https://img.freepik.com/free-photo/one-person-hiking-mountain-peak-admiring-milky-way-galaxy-generated-by-ai_24640-93611.jpg?ga=GA1.1.1006385511.1732368125&semt=ais_country_boost&w=740') center/cover no-repeat;
+      background: url('https://img.freepik.com/free-photo/one-person-hiking-mountain-peak-admiring-milky-way-galaxy-generated-by-ai_24640-93611.jpg') center/cover no-repeat;
       height: 300px;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
+      position: relative;
     }
     header h1 {
       background-color: rgba(16, 32, 47, 0.6);
@@ -26,18 +27,23 @@
     }
     .mobile-menu-toggle {
       display: none;
-      background-color: #FFD700;
-      color: #000;
-      font-size: 28px;
-      padding: 10px 20px;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 32px;
+      color: #FFD700;
       cursor: pointer;
-      text-align: center;
+      z-index: 10;
     }
     nav.tabs {
       display: flex;
       justify-content: center;
       background-color: #1c1e45;
       flex-wrap: wrap;
+      transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+      overflow: hidden;
     }
     .tab-button {
       padding: 15px 25px;
@@ -97,17 +103,21 @@
       margin-top: 10px;
       border-radius: 5px;
     }
+
     @media (max-width: 768px) {
       .mobile-menu-toggle {
         display: block;
       }
       nav.tabs {
-        display: none;
         flex-direction: column;
-        width: 100%;
+        max-height: 0;
+        opacity: 0;
+        pointer-events: none;
       }
       nav.tabs.show {
-        display: flex;
+        max-height: 1000px; /* достаточно большое значение */
+        opacity: 1;
+        pointer-events: all;
       }
       .tab-button {
         width: 100%;
@@ -122,10 +132,10 @@
 <body>
   <header>
     <h1>Космічні дослідження – шлях до зірок</h1>
+    <button class="mobile-menu-toggle">&#9776;</button>
   </header>
 
-  <div class="mobile-menu-toggle">&#9776;</div>
-  <nav class="tabs show">
+  <nav class="tabs">
     <button class="tab-button active" data-tab="history">Історія</button>
     <button class="tab-button" data-tab="modern">Сучасні місії</button>
     <button class="tab-button" data-tab="future">Майбутнє</button>
@@ -161,7 +171,7 @@
 
   <div class="tab-content" id="video">
     <h2>Відео</h2>
-    <iframe width="100%" height="326" src="https://www.youtube.com/embed/AfUTnud2Ojs" title="15 ФАКТІВ ПРО КОСМОС" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe width="100%" height="326" src="https://www.youtube.com/embed/AfUTnud2Ojs" title="15 ФАКТІВ ПРО КОСМОС" frameborder="0" allowfullscreen></iframe>
   </div>
 
   <div class="tab-content" id="form">
@@ -204,7 +214,7 @@
       });
     });
 
-    // Обробка форми коментарів
+    // Коментарі
     const commentForm = document.getElementById('commentForm');
     const commentsList = document.getElementById('commentsList');
 
